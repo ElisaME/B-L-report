@@ -1,13 +1,20 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const logger = require('morgan');
+const path = require('path');
 
-//dice la ruta en donde están nuestros archivos estáticos, archivos estáticos
-app.use(express.static('public'))
-
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
 
 app.listen(3000,()=>{
   console.log(`server on http://localhost:3000`)
 })
+
+// Middleware Setup
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 const index = require('./routes/index');
 app.use('/', index);

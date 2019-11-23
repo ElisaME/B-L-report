@@ -22,7 +22,8 @@ exports.ReportController= (req,res)=> {
             break;
         }
       }
-      res.render('Home',{total})
+      const revenue_total = obj => Object.values(total).reduce((a, b) => a + b);
+      res.render('Home',{total,revenue_total})
     })
     .catch(error => {
       console.log(error);

@@ -1,0 +1,9 @@
+p{
+  margin:20px 0px;
+}
+.footer{
+  padding:15px;
+  position: absolute;
+  bottom: 0;
+  width:100%;
+}

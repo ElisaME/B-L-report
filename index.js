@@ -18,3 +18,5 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 const index = require('./routes/index');
 app.use('/', index);
+
+module.exports = app; // for testing
